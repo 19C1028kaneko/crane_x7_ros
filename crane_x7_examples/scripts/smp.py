@@ -62,7 +62,8 @@ def main():
     arm.set_pose_target( target_pose )	# 目標ポーズ設定
     arm.go()							# 実行
     """
-    gripper.set_joint_value_target([0.9, 0.9])                                                                       gripper.go()
+    gripper.set_joint_value_target([0.9, 0.9])
+    gripper.go()
 
     """
     target_pose = geometry_msgs.msg.Pose()
@@ -77,7 +78,8 @@ def main():
     arm.set_pose_target( target_pose )  # 目標ポーズ設定
     arm.go()
     """
-    gripper.set_joint_value_target([0.4, 0.4])                                                                       gripper.go() 
+    gripper.set_joint_value_target([0.4, 0.4])
+    gripper.go() 
 
     """
     target_pose = geometry_msgs.msg.Pose()
