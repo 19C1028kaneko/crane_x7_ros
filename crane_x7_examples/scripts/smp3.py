@@ -57,9 +57,9 @@ def main():
     
     target_pose = geometry_msgs.msg.Pose()
     target_pose.position.x = 0.2
-    target_pose.position.y = 0.2
+    target_pose.position.y = -0.2
     target_pose.position.z = 0.3
-    q = quaternion_from_euler(-3.14, 0.0, -3.14/2)  # 上方から掴み>に行く場合    target_pose = geometry_msgs.msg.Pose()
+    q = quaternion_from_euler(-3.14, 0.0, -3.14/2.0)  # 上方から掴み>に行く場合    target_pose = geometry_msgs.msg.Pose()
     target_pose.orientation.x = q[0]
     target_pose.orientation.y = q[1]
     target_pose.orientation.z = q[2]
@@ -73,7 +73,7 @@ def main():
 
     target_pose = geometry_msgs.msg.Pose()
     target_pose.position.x = 0.2
-    target_pose.position.y = 0.2
+    target_pose.position.y = -0.2
     target_pose.position.z = 0.1
     q = quaternion_from_euler(-3.14, 0.0, -3.14/2.0)  # 上方から掴み>に行く場合
     target_pose.orientation.x = q[0]
@@ -83,12 +83,12 @@ def main():
     arm.set_pose_target(target_pose)  # 目標ポーズ設定
     arm.go()  # 実行
 
-    gripper.set_joint_value_target([0.2, 0.2])
+    gripper.set_joint_value_target([0.15, 0.15])
     gripper.go()
 
     target_pose = geometry_msgs.msg.Pose()
     target_pose.position.x = 0.2
-    target_pose.position.y = 0.2
+    target_pose.position.y = -0.2
     target_pose.position.z = 0.3
     q = quaternion_from_euler(-3.14, 0.0, -3.14/2.0)  # 上方から掴み>に行く場合
     target_pose.orientation.x = q[0]
@@ -100,9 +100,23 @@ def main():
 
     target_pose = geometry_msgs.msg.Pose()
     target_pose.position.x = 0.2
+    target_pose.position.y = -0.2
+    target_pose.position.z = 0.3
+    q = quaternion_from_euler(-3.14/2, 0.0, -3.14/2.0)  # 上方から掴み>に行く場合
+    target_pose.orientation.x = q[0]
+    target_pose.orientation.y = q[1]
+    target_pose.orientation.z = q[2]
+    target_pose.orientation.w = q[3]
+    arm.set_pose_target(target_pose)  # 目標ポーズ設定
+    arm.go()
+
+
+
+    target_pose = geometry_msgs.msg.Pose()
+    target_pose.position.x = 0.2
     target_pose.position.y = 0.0
     target_pose.position.z = 0.3 
-    q = quaternion_from_euler(-3.14, 0.0, -3.14/4.0)  # 上方から掴み>に行く場合
+    q = quaternion_from_euler(-3.14/2, 0.0, -3.14/2.0)  # 上方から掴み>に行く場合
     target_pose.orientation.x = q[0]
     target_pose.orientation.y = q[1]
     target_pose.orientation.z = q[2]
@@ -114,11 +128,7 @@ def main():
     print("あああああああああああ")
 
     
-    # 移動後の手先ポーズを表示
-    arm.set_named_target("home")
-    arm.go()
-
-    print("done")
+    # 移動後の手先ポーズを表
 
 
 if __name__ == '__main__':
